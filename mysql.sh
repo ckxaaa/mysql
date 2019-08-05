@@ -22,7 +22,7 @@ cat >/etc/my.cnf<<EFO
 [mysqld]
 basedir = /usr/local/mysql
 datadir = /opt/data
-socket = /tmp/mysql.socks
+socket = /tmp/mysql.sock
 port = 3306
 pid-file = /opt/data/mysql.pid
 user = mysql
