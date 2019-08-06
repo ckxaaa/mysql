@@ -17,8 +17,7 @@ bash /ect/profile.d/mysql.sh
 mkdir /opt/data
 chown -R mysql.mysql /opt/data
 cd /root
-/usr/local/mysql/bin/mysqld --initialize --user=mysql --datadir=/opt/data/ >> init_mysql
-cat >/etc/my.cnf<<EFO
+$init=/usr/local/mysql/bin/mysqld --initialize --user=mysql --datadir=/opt/data/ 
 [mysqld]
 basedir = /usr/local/mysql
 datadir = /opt/data
@@ -32,4 +31,4 @@ cp -a /usr/local/mysql/support-files/mysql.server /etc/init.d/mysqld
 sed -ri 's#^(basedir=).*#\1/usr/local/mysql#g' /etc/init.d/mysqld
 sed -ri 's#^(datadir=).*#\1/opt/data#g' /etc/init.d/mysqld
 /etc/init.d/mysqld start
-
+$init >> /root/init
